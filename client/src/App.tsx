@@ -1,10 +1,10 @@
-import { FC, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import "./App.css";
 import LoginForm from "./components/LoginForm";
 import { Context } from "./main";
 import { observer } from "mobx-react-lite";
 
-const App: FC = () => {
+const App = observer(() => {
   const { store } = useContext(Context);
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -20,6 +20,6 @@ const App: FC = () => {
       <LoginForm />
     </div>
   );
-};
+});
 
-export default observer<FC>(App);
+export default App;
